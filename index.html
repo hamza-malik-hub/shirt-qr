@@ -1,77 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Stitch QR 😂</title>
-
     <style>
-        body {
+        html, body {
             margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #111;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        .box {
-            max-width: 500px;
-            width: 100%;
-        }
-
-        h1 {
-            color: white;
-            font-size: 28px;
-        }
-
-        p {
-            color: #aaa;
+            padding: 0;
+            background: white;
         }
 
         img {
-            width: 100%;
-            max-width: 450px;
-            border-radius: 15px;
             display: block;
-            margin: 20px auto;
+            width: 100%;
+            height: auto;
         }
     </style>
 </head>
 
 <body>
 
-<div class="box">
-
-    <h1>😂 You Scanned It!</h1>
-
-    <p id="message">Loading your surprise...</p>
-
-    <img id="funnyImage" src="" alt="Funny picture">
-
-</div>
+<img id="funnyImage" src="" alt="">
 
 <script>
-
-    // Get the ID from the QR link
     const params = new URLSearchParams(window.location.search);
     let id = parseInt(params.get("id"));
 
-    // Make sure ID is between 1 and 20
     if (isNaN(id) || id < 1 || id > 20) {
         id = 1;
     }
 
-    // Show the correct picture
     document.getElementById("funnyImage").src = id + ".jpg";
-
-    document.getElementById("message").innerText =
-        "Shirt #" + id + " unlocked 😂";
-
 </script>
 
 </body>
